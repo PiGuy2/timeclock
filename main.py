@@ -1,6 +1,9 @@
 import sys
 
+# change
 userFile = "./data/userFile.txt"
+# do not change
+usernameList = []
 
 
 def userBool(ms):
@@ -109,6 +112,8 @@ def createUser():
         else:
             with open(userFile, 'a') as nameFile:
                 nameFile.write(str(uN) + "|" + str(fN) + "," + str(mI) + "," + str(lN) + "\n")
+            global usernameList
+            usernameList.append(uN)
             print("\tUser successfuly created!")
 
 
@@ -123,13 +128,19 @@ def checkIfUser(uName):
 
 
 def main():
-    # with open(userFile, 'r') as nameFile:
-    #     usernamelist = nameFile.readlines()
-    #     for i in range(len(usernamelist)):
-    #         usernamelist[i] = usernamelist[i].strip("\n").split("|")
-    #
+    global usernameList
+    try:
+        with open(userFile, 'r') as nameFile:
+            lineList = nameFile.readlines()
+            for i in range(len(lineList)):
+                usernameList.append(lineList[i].strip("\n").split("|")[0])  # extract usernames
+                # print(usernameList[i])
+    except FileNotFoundError:
+        print("Username file not found")
+        usernameList = []
+
     # allList = ["help", "new", "quit", "admin"]
-    # for name in usernamelist:
+    # for name in usernameList:
     #     allList.append(name[0])
     #     allList.append(name[1])
     # ----------
