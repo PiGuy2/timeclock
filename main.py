@@ -10,37 +10,62 @@ def userBool(ms):
             print("Invalid response. Please input 'y', 'yes', 'n', or 'no'")
 
 
+def checkLetter(l):
+    if len(l) != 1:
+        print("Check letter error")
+        return False
+    elif l in [" ", "(", "|", "\\", "!", "^", "=", "-", "/", ":", ",", ")"]:  # disallow: ( | \ ! ^ = - / : , )
+        print("You may not use any of the following characters in your name: ( | \\ ! ^ = - / : , )")
+        return False
+    else:
+        return True
+
+
+def validName(name):
+    if len(name) > 1:
+        lGood = True
+        for l in name:
+            if checkLetter(l):
+                # good
+                pass  # remove?
+            else:
+                # bad
+                lGood = False
+                break
+        if lGood:
+            # valid name
+            return True
+        else:
+            # invalid name
+            return False
+    else:
+        print("\tName must be at least two letters")
+        return False
+
+
 def createUser():
     print()
     # ==========
     while True:
         fN = input("\tEnter your first name ==> ").lower()
-        if len(fN) > 1:
-            if " " not in fN:
-                break
-            else:
-                print("\tName cannot contain spaces")
-        else:
-            print("\tName must be at least two letters")
+        if validName(fN):
+            break
     print()
     # ==========
     while True:
         mI = input("\tEnter your middle initial ==> ").lower()
         if len(mI) == 1:
             break
-        elif nI == " ":
-            print("\tInitial cannot be a space")
+        elif !validName(lN):
+            pass
         else:
             print("\tPlease enter one letter")
     print()
     # ==========
     while True:
         lN = input("\tEnter your last name ==> ").lower()
-        if len(lN) > 1:
-            if " " not in lN:
-                break
-            else:
-                print("\tName cannot contain spaces")
+        if validName(lN):
+            break
         else:
             print("\tName must be at least two letters")
     print()
