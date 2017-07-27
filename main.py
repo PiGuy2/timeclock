@@ -57,10 +57,10 @@ def validName(name):
 
 def validUsername(uName):
     if len(uName) > 2:
-        if uName.isalpha():
+        if uName.isalnum():
             return True
         else:
-            print("Username can only contain letters")
+            print("Username must only contain alphanumeric characters")
             return False
     else:
         print("Username must be at least 3 letters")
@@ -94,17 +94,31 @@ def createUser():
     print()
     # ==========
     while True:
-        uN = input("\tEnter a username (not case sensitive) ==> ").lower()
+        uN = input("\tEnter a username (not case sensitive, can contain letters and numbers) ==> ").lower()
         if validUsername(uN):
             break
     # ==========
     if userBool("\tWould you like to create a new user named '" + formatName(fN, mI, lN) + "' with username '" + str(uN) + "'?"):
         with open(userFile, 'a') as nameFile:
-            nameFile.write(str(uN) + "|" + str(fN) + "," + str(mI) + "," + str(lN))
+            nameFile.write(str(uN) + "|" + str(fN) + "," + str(mI) + "," + str(lN) + "\n")
+        print("\tUser successfuly created!")
+    else:
+        if userBool("\tCancel user creation?"):
+            print("\tUser not created")
+        else:
+            with open(userFile, 'a') as nameFile:
+                nameFile.write(str(uN) + "|" + str(fN) + "," + str(mI) + "," + str(lN) + "\n")
+            print("\tUser successfuly created!")
 
 
 def checkIfUserName():
     return True
+
+
+def checkIfUser(uName):
+    # TODO
+    print("User checking not enabled")
+    return False
 
 
 def main():
@@ -132,7 +146,7 @@ def main():
             if userBool("\tWould you like to create a new user?"):
                 createUser()
             else:
-                print("Canceled")
+                print("\tCanceled")
             pass
         elif inpt == "quit":
             # quit
