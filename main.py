@@ -56,15 +56,16 @@ def validName(name):
 
 
 def validUsername(uName):
-    if len(uName) > 2:
-        if uName.isalnum():
-            return True
-        else:
-            print("Username must only contain alphanumeric characters")
-            return False
-    else:
+    if not len(uName) > 2:
         print("Username must be at least 3 letters")
         return False
+    if not uName.isalnum():
+        print("Username must only contain alphanumeric characters")
+        return False
+    if uName in ["help", "new", "quit", "admin"]:
+        print("Username cannot be a command")
+        return False
+    return True
 
 
 def createUser():
