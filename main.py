@@ -26,24 +26,20 @@ def checkLetter(l):
 
 def validName(name):
     if len(name) > 1:
-        lGood = True
-        for l in name:
-            if checkLetter(l):
-                # good
-                pass  # remove?
-            else:
-                # bad
-                lGood = False
-                break
-        if lGood:
+        if name.isalpha():
             # valid name
             return True
         else:
             # invalid name
+            print("\tName must contain only letters")
             return False
     else:
         print("\tName must be at least two letters")
         return False
+
+
+def validUsername(uName):
+    return True
 
 
 def createUser():
@@ -58,9 +54,10 @@ def createUser():
     while True:
         mI = input("\tEnter your middle initial ==> ").lower()
         if len(mI) == 1:
-            break
-        elif !validName(lN):
-            pass
+            if mI.isalpha():
+                break
+            else:
+                print("\tInitial must be a letter")
         else:
             print("\tPlease enter one letter")
     print()
@@ -69,11 +66,12 @@ def createUser():
         lN = input("\tEnter your last name ==> ").lower()
         if validName(lN):
             break
-        else:
-            print("\tName must be at least two letters")
     print()
     # ==========
-    uN = input("\tEnter a username (not case sensitive) ==> ").lower()
+    while True:
+        uN = input("\tEnter a username (not case sensitive) ==> ").lower()
+        if validUsername(uN):
+            break
 
 
 def checkIfUserName():
