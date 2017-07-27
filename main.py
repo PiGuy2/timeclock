@@ -68,6 +68,9 @@ def validUsername(uName):
     if uName in ["help", "new", "quit", "admin"]:
         print("Username cannot be a command")
         return False
+    if uName in usernameList:
+        print("Username already taken")
+        return False
     return True
 
 
