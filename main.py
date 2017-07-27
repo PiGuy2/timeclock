@@ -1,4 +1,4 @@
-userFile = "./userFile.txt"
+userFile = "./data/userFile.txt"
 
 
 def userBool(ms):
@@ -80,6 +80,8 @@ def createUser():
         uN = input("\tEnter a username (not case sensitive) ==> ").lower()
         if validUsername(uN):
             break
+    with open(userFile, 'a') as nameFile:
+        nameFile.write(str(fN) + "," + str(mI) + "," + str(lN) + "|" + str(uN))
 
 
 def checkIfUserName():
