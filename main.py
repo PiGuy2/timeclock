@@ -15,6 +15,21 @@ def userBool(ms):
             print("Invalid response. Please input 'y', 'yes', 'n', or 'no'")
 
 
+def formatName(fN, mI, lN):
+    n = "%s%s" % (fN[0].upper(), fN[1:].lower())
+    n += " "
+    # ---
+    if len(mI) == 1:
+        n += mI.upper()
+    else:
+        print("format name error")
+        n += "middle initial error"
+    # ---
+    n += " "
+    n += "%s%s" % (lN[0].upper(), lN[1:].lower())
+    return n
+
+
 def checkLetter(l):
     if len(l) != 1:
         print("Check letter error")
@@ -83,9 +98,9 @@ def createUser():
         if validUsername(uN):
             break
     # ==========
-    if userBool("\tWould you like to create a new user named " + formatName() + " with username" + str(uN))
-    with open(userFile, 'a') as nameFile:
-        nameFile.write(str(uN) + "|" + str(fN) + "," + str(mI) + "," + str(lN))
+    if userBool("\tWould you like to create a new user named '" + formatName(fN, mI, lN) + "' with username '" + str(uN) + "'?"):
+        with open(userFile, 'a') as nameFile:
+            nameFile.write(str(uN) + "|" + str(fN) + "," + str(mI) + "," + str(lN))
 
 
 def checkIfUserName():
