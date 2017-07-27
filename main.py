@@ -39,7 +39,15 @@ def validName(name):
 
 
 def validUsername(uName):
-    return True
+    if len(uName) > 2:
+        if uName.isalpha():
+            return True
+        else:
+            print("Username can only contain letters")
+            return False
+    else:
+        print("Username must be at least 3 letters")
+        return False
 
 
 def createUser():
