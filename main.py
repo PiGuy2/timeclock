@@ -136,7 +136,13 @@ def main():
         with open(userFile, 'r') as nameFile:
             lineList = nameFile.readlines()
             for i in range(len(lineList)):
-                usernameList.append(lineList[i].strip("\n").split("|")[0])  # extract usernames
+                u = lineList[i].strip("\n").split("|")[0]
+                if u in usernameList:
+                    n = lineList[i].strip("\n").split("|")[1].split(",")
+                    print("Username " + u + " duplicated on line " + str(i + 1))
+                    print("\t" + formatName(n[0], n[1], n[2]) + "'s username not loaded")
+                else:
+                    usernameList.append(u)  # extract usernames
                 # print(usernameList[i])
     except FileNotFoundError:
         print("Username file not found")
