@@ -1,3 +1,6 @@
+userFile = "./userFile.txt"
+
+
 def userBool(ms):
     msg = ms + " (y/n) ==> "
     while True:
@@ -78,6 +81,16 @@ def checkIfUserName():
 
 
 def main():
+    # with open(userFile, 'r') as nameFile:
+    #     usernamelist = nameFile.readlines()
+    #     for i in range(len(usernamelist)):
+    #         usernamelist[i] = usernamelist[i].strip("\n").split("|")
+    #
+    # allList = ["help", "new", "quit", "admin"]
+    # for name in usernamelist:
+    #     allList.append(name[0])
+    #     allList.append(name[1])
+    # ----------
     name = ""
     while True:
         inpt = input("Enter your username or a command. Type 'help' for help. ==> ").lower()
