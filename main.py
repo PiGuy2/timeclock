@@ -82,6 +82,8 @@ def createUser():
         uN = input("\tEnter a username (not case sensitive) ==> ").lower()
         if validUsername(uN):
             break
+    # ==========
+    if userBool("\tWould you like to create a new user named " + formatName() + " with username" + str(uN))
     with open(userFile, 'a') as nameFile:
         nameFile.write(str(uN) + "|" + str(fN) + "," + str(mI) + "," + str(lN))
 
