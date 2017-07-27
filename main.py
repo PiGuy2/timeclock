@@ -48,6 +48,10 @@ def createUser():
     uN = input("\tEnter a username (not case sensitive) ==> ").lower()
 
 
+def checkIfUserName():
+    return True
+
+
 def main():
     name = ""
     while True:
