@@ -11,10 +11,41 @@ def userBool(ms):
 
 
 def createUser():
-    fN = input("\tEnter your first name ==> ").lower()
-    mI = input("\tEnter your middle initial ==> ").lower()
-    lN = input("\tEnter your last name ==> ").lower()
-    # TODO
+    print()
+    # ==========
+    while True:
+        fN = input("\tEnter your first name ==> ").lower()
+        if len(fN) > 1:
+            if " " not in fN:
+                break
+            else:
+                print("\tName cannot contain spaces")
+        else:
+            print("\tName must be at least two letters")
+    print()
+    # ==========
+    while True:
+        mI = input("\tEnter your middle initial ==> ").lower()
+        if len(mI) == 1:
+            break
+        elif nI == " ":
+            print("\tInitial cannot be a space")
+        else:
+            print("\tPlease enter one letter")
+    print()
+    # ==========
+    while True:
+        lN = input("\tEnter your last name ==> ").lower()
+        if len(lN) > 1:
+            if " " not in lN:
+                break
+            else:
+                print("\tName cannot contain spaces")
+        else:
+            print("\tName must be at least two letters")
+    print()
+    # ==========
+    uN = input("\tEnter a username (not case sensitive) ==> ").lower()
 
 
 def main():
