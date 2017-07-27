@@ -1,3 +1,5 @@
+import sys
+
 userFile = "./data/userFile.txt"
 
 
@@ -81,7 +83,7 @@ def createUser():
         if validUsername(uN):
             break
     with open(userFile, 'a') as nameFile:
-        nameFile.write(str(fN) + "," + str(mI) + "," + str(lN) + "|" + str(uN))
+        nameFile.write(str(uN) + "|" + str(fN) + "," + str(mI) + "," + str(lN))
 
 
 def checkIfUserName():
