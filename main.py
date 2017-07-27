@@ -55,6 +55,9 @@ def main():
         if len(inpt) < 3:
             # too short to be a username
             print("Invalid input")
+        elif inpt == "help":
+            # help
+            pass
         elif inpt == "new":
             print("Creating a new user")
             if userBool("\tWould you like to create a new user?"):
